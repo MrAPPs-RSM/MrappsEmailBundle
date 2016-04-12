@@ -1,0 +1,36 @@
+{
+  "name": "mrapps/emailbundle",
+  "description": "Gestione email - Symfony2",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Mr.APPs srl",
+      "email": "info@mr-apps.com"
+    }
+  ],
+  "keywords": [
+    "mrapps email symfony bundle"
+  ],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "php": ">=5.4",
+    "symfony/symfony": ">=2.6"
+  },
+  "autoload": {
+    "psr-0": {
+      "Mrapps\\EmailBundle": ""
+    }
+  },
+  "target-dir": "Mrapps/EmailBundle",
+  "repositories": [
+    {
+    }
+  ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1-dev"
+    }
+  }
+}

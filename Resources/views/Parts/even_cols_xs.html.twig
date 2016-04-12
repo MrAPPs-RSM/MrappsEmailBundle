@@ -1,0 +1,44 @@
+<!-- Two/Three Even Columns (XS: 1/2) -->
+{% if td_style is defined and td_style=='three_columns' %}
+    {% set td_class='column-3' %}
+    {% set img_size=170 %}
+{% else %}
+    {% if xs_invariate is not empty %}
+        {% set td_class='column-2 xs_invariate' %}
+    {% else %}
+        {% set td_class='column-2' %}
+    {% endif %}
+    {% set img_size=270 %}
+{% endif %}
+<tr>
+    <td align="center" valign="top" style="padding: 10px;">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                {% for row in rows %}
+                    <td class="{{ td_class }}">
+                        <table cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                                <td style="padding: 10px; text-align: center">
+                                    {% if row.link is defined and row.link is not empty %}
+                                        <a href="{{ row.link }}"><img src="{{ row.image_url }}" width="{{ img_size }}"
+                                                                      height="{{ img_size }}" alt="alt_text" border="0"
+                                                                      class="fluid"></a>
+                                    {% else %}
+                                        <img src="{{ row.image_url }}" width="{{ img_size }}" height="{{ img_size }}" alt="alt_text"
+                                             border="0" class="fluid">
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; color: {{ text_color }}; padding: 0 10px 10px; text-align: left;"
+                                    class="center-on-narrow">
+                                    {{ row.description | raw }}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </td>
+</tr>
