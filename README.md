@@ -21,7 +21,7 @@ AppKernel.php:
 ```php
 $bundles = array(
     [...]
-    new Mrapps\OnesignalBundle\MrappsEmailBundle(),
+    new Mrapps\EmailBundle\MrappsEmailBundle(),
 );
 ```
 
