@@ -2,6 +2,7 @@
 
 namespace Mrapps\EmailBundle\Controller;
 
+use Mrapps\EmailBundle\Classes\EmailStyle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -16,15 +17,18 @@ class EmailController extends Controller
      */
     public function previewAction()
     {
+
+        $style=new EmailStyle($this->container);
+
         return $this->render('MrappsEmailBundle:Email:index.html.twig', array(
             /*stile email*/
-            "background_color" => '#F5F5F5',
-            "content_color" => '#FFFFFF',
-            "bold_color" => '#000000',
-            "text_color" => '#555555',
-            "main_color" => '#AE3742',
-            "main_color_hover" => '#882A34',
-            "text_on_main_color" => '#FFFFFF',
+            "background_color" => $style->getBackgroundColor(),
+            "content_color" => $style->getContentColor(),
+            "bold_color" => $style->getBoldColor(),
+            "text_color" => $style->getTextColor(),
+            "main_color" => $style->getMainColor(),
+            "main_color_hover" => $style->getMainColorHover(),
+            "text_on_main_color" => $style->getTextOnMainColor(),
             /* dati email*/
             'logo_url' => 'http://placehold.it/200x50',
             'company_name' => 'Azienda di test',
@@ -39,7 +43,7 @@ class EmailController extends Controller
                 array("type" => EmailPart::TwoEvenColsXs, "xs_invariate" => false, "rows" => array(array("image_url" => "http://placehold.it/270", "description" => "descrizione breve 1"), array("image_url" => "http://placehold.it/270", "description" => "descrizione breve 2"), array("image_url" => "http://placehold.it/270", "description" => "descrizione breve 3"))),
                 array("type" => EmailPart::ThreeEvenColsXs, "rows" => array(array("image_url" => "http://placehold.it/170", "description" => "descrizione breve 1"), array("image_url" => "http://placehold.it/170", "description" => "descrizione breve 2"), array("image_url" => "http://placehold.it/170", "description" => "descrizione breve 3"), array("image_url" => "http://placehold.it/170", "description" => "descrizione breve 4"))),
                 array("type" => EmailPart::ThumbnailText, "image_url" => "http://placehold.it/170", "title" => "Maecenas sed ante pellentesque, posuere leo id", "description" => "Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat."),
-                array("type" => EmailPart::ThumbnailText,"direction"=>"left","link"=>"http://www.google.it","link_title"=>"Vai al sito", "image_url" => "http://placehold.it/170", "title" => "Maecenas sed ante pellentesque, posuere leo id", "description" => "Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat."),
+                array("type" => EmailPart::ThumbnailText, "direction" => "left", "link" => "http://www.google.it", "link_title" => "Vai al sito", "image_url" => "http://placehold.it/170", "title" => "Maecenas sed ante pellentesque, posuere leo id", "description" => "Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat."),
             )));
     }
 }

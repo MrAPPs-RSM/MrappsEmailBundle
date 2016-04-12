@@ -32,6 +32,24 @@ mrapps_email:
     prefix:   /
 ```
 
+config.yml: (configurazione minima)
+```yaml
+mrapps_email:
+    style: ~
+```
+
+config.yml: (configurazione completa)
+```yaml
+mrapps_email:
+    style:
+        background_color: '#F5F5F5'
+        content_color: '#FFFFFF'
+        bold_color: '#000000'
+        text_color: '#555555'
+        main_color: '#AE3742'
+        main_color_hover: '#882A34'
+        text_on_main_color: '#FFFFFF'
+```
 
 ## Utilizzo
 
