@@ -87,4 +87,9 @@ swiftmailer:
 configurare chiamata command 'swiftmailer:pool:send --message-limit=20 --env=prod' per inviare le email dallo spool invece che direttamente prima della response
 
 configurare chiamata command 'mrapps:email:clear-failures' che periodicamente riprova ad inviare i messaggi e li cancella nel caso fallisca
- 
+
+escludere i seguenti file da git:
+
+spool/*.sending
+spool/*.loading
+spool/*.message
