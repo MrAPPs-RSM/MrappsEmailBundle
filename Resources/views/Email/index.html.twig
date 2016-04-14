@@ -87,7 +87,7 @@
         }
     </style>
     <!-- Progressive Enhancements -->
-    <style>
+    <style type="text/css">
         .column-2,
         .column-3,
         .column-4 {
@@ -212,7 +212,7 @@
                 </table>
                 <!-- Email Body -->
                 <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="{{ content_color }}"
-                       width="600" class="email-container">
+                       width="600" class="email-container" style="border: 1px solid #dedede; -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); -ms-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);">
                     {% for part in email_parts %}
                         {% if part.type=='image' %}
                             {% include 'MrappsEmailBundle:Parts:image.html.twig' with {'image_url':part.image_url|default(null)} %}
