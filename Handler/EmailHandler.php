@@ -2,6 +2,7 @@
 
 namespace Mrapps\EmailBundle\Handler;
 
+use Mrapps\EmailBundle\Classes\Utils;
 use Symfony\Component\DependencyInjection\Container;
 use Mrapps\EmailBundle\Classes\EmailStyle;
 
@@ -45,6 +46,26 @@ class EmailHandler
             'street' => $street,
             'other_info' => $otherInfo,
             "email_parts" => $emailParts));
+    }
+
+    /**
+     * invia un'email partendo dai dati passati.
+     *
+     * @param string $subject soggetto email
+     * @param array /string $from inviante
+     * @param array $to riceventi
+     * @param array $emailParts array che contiene la struttura della email da comporre
+     * @param string $logoUrl url assoluto immagine logo
+     * @param string $companyName nome azienda che invia la email
+     * @param string $street via dell'azienda
+     * @param string $otherInfo campo in cui mettere altre info (per esempio telefono)
+     *
+     * @return  boolean operazione completata
+     *
+     */
+    public function sendEmail($subject = "", $from = null, $to = null, $emailParts = null, $logoUrl = null, $companyName = null, $street = null, $otherInfo = null)
+    {
+        return Utils::sendEmail($this->container, $subject, $from, $to, $emailParts, $logoUrl, $companyName, $street, $otherInfo);
     }
 
 }
