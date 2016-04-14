@@ -55,6 +55,7 @@ mrapps_email:
 
 Esempio di compose email:
 
+```php
 use Mrapps\EmailBundle\Classes\EmailPart;
 
 ....
@@ -68,7 +69,8 @@ $this->container->get("mrapps.email")->composeEmail(array(
             array("type" => EmailPart::ThumbnailText, "image_url" => "http://placehold.it/170", "title" => "Maecenas sed ante pellentesque, posuere leo id", "description" => "Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat."),
             array("type" => EmailPart::ThumbnailText, "direction" => "left", "link" => "http://www.google.it", "link_title" => "Vai al sito", "image_url" => "http://placehold.it/170", "title" => "Maecenas sed ante pellentesque, posuere leo id", "description" => "Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat."),
         ),'http://placehold.it/200x50','Azienda di test','Via Da Quella Parte 12, 1234 DoveTiPare'));
-        
+```
+
 ## Spool messaggi
 
 config.yml:
@@ -84,7 +86,23 @@ swiftmailer:
         path: '%kernel.root_dir%/spool'
 ```
 
-configurare chiamata command 'swiftmailer:pool:send --message-limit=20 --env=prod' per inviare le email dallo spool invece che direttamente prima della response
+configurare chiamata command:
+```
+app/console swiftmailer:pool:send --message-limit=20 --env=prod
 
-configurare chiamata command 'mrapps:email:clear-failures' che periodicamente riprova ad inviare i messaggi e li cancella nel caso fallisca
- 
+//per inviare le email dallo spool invece che direttamente prima della response
+```
+
+configurare chiamata command:
+```
+mrapps:email:clear-failures
+
+//periodicamente riprova ad inviare i messaggi e li cancella nel caso fallisca
+```
+
+escludere i seguenti file da git:
+```
+spool/*.sending
+spool/*.loading
+spool/*.message
+```
