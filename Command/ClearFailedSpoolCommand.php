@@ -4,6 +4,7 @@ namespace Mrapps\EmailBundle\Command;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Finder\Finder;
 
 class ClearFailedSpoolCommand extends ContainerAwareCommand
 {
@@ -21,8 +22,12 @@ class ClearFailedSpoolCommand extends ContainerAwareCommand
             $transport->start();
         }
 
-        $spoolPath = $this->getContainer()->getParameter('swiftmailer.spool.file.path');
+        $spoolPath = $this->getContainer()->get("kernel")->getRootDir() . "/spool";
         $finder = Finder::create()->in($spoolPath)->name('*.sending');
+
+        if ($finder->count() == 0) {
+            $output->writeln("<info>Emails failed not found</info>");
+        }
 
         foreach ($finder as $failedFile) {
             // rename the file, so no other process tries to find it
