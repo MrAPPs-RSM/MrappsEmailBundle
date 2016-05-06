@@ -2,12 +2,12 @@
 <table align="center" width="600" class="email-container">
     <tr>
         <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center;">
-            {{ company_name }}
+            <span class="mobile-link--footer" style="color: #999999;">{{ company_name }}</span>
             <br/>
-            <span class="mobile-link--footer">{{ street }}</span>
+            <span class="mobile-link--footer" style="color: #999999;">{{ street }}</span>
             {% if other_info is not empty %}
                 <br/>
-                <span class="mobile-link--footer">{{ other_info }}</span>
+                <span class="mobile-link--footer" style="color: #999999;">{{ other_info }}</span>
             {% endif %}
         </td>
     </tr>
