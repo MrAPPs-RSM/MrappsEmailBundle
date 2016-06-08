@@ -6,7 +6,7 @@ use Twig_Extension;
 use Mrapps\EmailBundle\Classes\Utils;
 
 class MrappsEmailTwigExtension extends Twig_Extension {
-    
+
     private $container;
 
     public function __construct($container) {
@@ -21,15 +21,15 @@ class MrappsEmailTwigExtension extends Twig_Extension {
     public function getFunctions() {
         return array();
     }
-    
+
     public function getFilters() {
         return array(
-            new \Twig_SimpleFilter('tronca', function($string, $length) {
-                return Utils::troncaStringa($string, $length, false);
+            new \Twig_SimpleFilter('tronca', function($string, $length, $stripTags = false) {
+                return Utils::troncaStringa($string, $length, $stripTags);
             }),
         );
     }
-    
+
     /**
      * @return string
      */

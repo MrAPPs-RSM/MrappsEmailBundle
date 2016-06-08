@@ -29,9 +29,9 @@
                                     <br/>
                                 {% endif %}
                                 {% if link is defined and link is not empty %}
-                                {{ description | raw | tronca(103) }}
+                                    {{ description | tronca(103) | raw }}
                                 {% else %}
-                                {{ description | raw | tronca(253) }}
+                                    {{ description | tronca(253) | raw }}
                                 {% endif %}
 
                                 {% if link is defined and link is not empty %}

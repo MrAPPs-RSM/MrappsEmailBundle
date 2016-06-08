@@ -48,6 +48,11 @@ class Utils
             }
         }
 
-        return implode(array_slice($parts, 0, $last_part))."...";
+        $output = trim(implode(array_slice($parts, 0, $last_part)));
+        if(substr($output, strlen($output)-1, 1) != '.') {
+            $output .= '...';
+        }
+
+        return $output;
     }
 }
