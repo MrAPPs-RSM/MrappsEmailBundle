@@ -221,6 +221,7 @@
                         {% elseif part.type=='bg_image_with_text' %}
                             {% include 'MrappsEmailBundle:Parts:bg_image_with_text.html.twig' with {'background_url':part.background_url|default(null),'description':part.description|default('')} %}
                         {% elseif part.type=='two_even_cols_xs' %}
+                            {% set partTitle = part.title|default(null) %}
                             {% for row in part.rows %}
                                 {% if loop.index0%2==0 %}
 
@@ -230,10 +231,12 @@
                                         {% set row_cells=[row,part.rows[loop.index0+1]] %}
                                     {% endif %}
 
-                                    {% include 'MrappsEmailBundle:Parts:even_cols_xs.html.twig' with {'rows':row_cells|default(null),'xs_invariate':part.xs_invariate|default(null)} %}
+                                    {% include 'MrappsEmailBundle:Parts:even_cols_xs.html.twig' with {'title':partTitle,'rows':row_cells|default(null),'xs_invariate':part.xs_invariate|default(null)} %}
+                                    {% set partTitle = null %}
                                 {% endif %}
                             {% endfor %}
                         {% elseif part.type=='three_even_cols_xs' %}
+                            {% set partTitle = part.title|default(null) %}
                             {% for row in part.rows %}
                                 {% if loop.index0%3==0 %}
 
@@ -245,7 +248,8 @@
                                         {% set row_cells=[row,part.rows[loop.index0+1]] %}
                                     {% endif %}
 
-                                    {% include 'MrappsEmailBundle:Parts:even_cols_xs.html.twig' with {'rows':row_cells|default(null),'td_style':'three_columns'} %}
+                                    {% include 'MrappsEmailBundle:Parts:even_cols_xs.html.twig' with {'title':partTitle,'rows':row_cells|default(null),'td_style':'three_columns'} %}
+                                    {% set partTitle = null %}
                                 {% endif %}
                             {% endfor %}
                         {% elseif part.type=='thumbnail_text' %}
