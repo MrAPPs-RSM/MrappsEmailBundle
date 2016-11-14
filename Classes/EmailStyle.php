@@ -2,6 +2,8 @@
 
 namespace Mrapps\EmailBundle\Classes;
 
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+
 class EmailStyle
 {
     private $backgroundColor;
@@ -18,16 +20,16 @@ class EmailStyle
 
     private $textOnMainColor;
 
-    public function __construct($container)
+    public function __construct(ParameterBagInterface $params)
     {
-        $this->backgroundColor = $container->getParameter('mrapps_email.style.background_color');
-        $this->contentColor = $container->getParameter('mrapps_email.style.content_color');
+        $this->backgroundColor = $params->get('mrapps_email.style.background_color');
+        $this->contentColor = $params->get('mrapps_email.style.content_color');
 
-        $this->boldColor = $container->getParameter('mrapps_email.style.bold_color');
-        $this->textColor = $container->getParameter('mrapps_email.style.text_color');
-        $this->mainColor = $container->getParameter('mrapps_email.style.main_color');
-        $this->mainColorHover = $container->getParameter('mrapps_email.style.main_color_hover');
-        $this->textOnMainColor = $container->getParameter('mrapps_email.style.text_on_main_color');
+        $this->boldColor = $params->get('mrapps_email.style.bold_color');
+        $this->textColor = $params->get('mrapps_email.style.text_color');
+        $this->mainColor = $params->get('mrapps_email.style.main_color');
+        $this->mainColorHover = $params->get('mrapps_email.style.main_color_hover');
+        $this->textOnMainColor = $params->get('mrapps_email.style.text_on_main_color');
     }
 
     /**

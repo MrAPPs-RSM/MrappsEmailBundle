@@ -1,7 +1,11 @@
 services:
     mrapps.email:
-        class: Mrapps\EmailBundle\Handler\EmailHandler
-        arguments:  [@service_container]
+        class: Mrapps\EmailBundle\Services\EmailManager
+        arguments:
+                - @twig
+                - @swiftmailer.mailer.default
+        calls:
+                - [setParameters, ["@=service('kernel').getContainer().getParameterBag()"]]
 
     mrapps.email.twig.extension:
             class: Mrapps\EmailBundle\Twig\MrappsEmailTwigExtension
