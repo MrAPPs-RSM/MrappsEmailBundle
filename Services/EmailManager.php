@@ -88,7 +88,7 @@ class EmailManager
      * @param array | string $bcc email che ricevono in copia il messaggio
      * @return  boolean operazione completata
      */
-    public function sendEmail($subject, $from, $to, $emailParts, $logoUrl, $companyName, $street, $otherInfo, $bcc = null)
+    public function sendEmail($subject, $from, $to, $emailParts, $logoUrl, $companyName, $street, $otherInfo = null, $bcc = null)
     {
         if ($from === null ||
             $to === null ||
