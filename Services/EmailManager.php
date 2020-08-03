@@ -3,6 +3,7 @@
 namespace Mrapps\EmailBundle\Services;
 
 use Mrapps\EmailBundle\Classes\EmailStyle;
+use Swift_Message;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class EmailManager
@@ -76,7 +77,7 @@ class EmailManager
      * invia un'email partendo dai dati passati.
      *
      * @param string $subject soggetto email
-     * @param array /string $from inviante
+     * @param $from
      * @param array $to riceventi
      * @param array $emailParts array che contiene la struttura della email da comporre
      * @param string $logoUrl url assoluto immagine logo
@@ -84,10 +85,10 @@ class EmailManager
      * @param string $street via dell'azienda
      * @param string $otherInfo campo in cui mettere altre info (per esempio telefono)
      *
+     * @param array | string $bcc email che ricevono in copia il messaggio
      * @return  boolean operazione completata
-     *
      */
-    public function sendEmail($subject = "", $from = null, $to = null, $emailParts = null, $logoUrl = null, $companyName = null, $street = null, $otherInfo = null)
+    public function sendEmail($subject, $from, $to, $emailParts, $logoUrl, $companyName, $street, $otherInfo, $bcc = null)
     {
         if ($from === null ||
             $to === null ||
@@ -101,11 +102,14 @@ class EmailManager
 
         $body = $this->composeEmail($emailParts, $logoUrl, $companyName, $street, $otherInfo);
 
-        $message = \Swift_Message::newInstance()
-            ->setSubject($subject)
+        $message = (new Swift_Message($subject))
             ->setFrom($from)
             ->setTo($to)
             ->setBody($body, "text/html");
+
+        if($bcc){
+            $message->setBcc($bcc);
+        }
 
         return $this->mailer->send($message);
     }

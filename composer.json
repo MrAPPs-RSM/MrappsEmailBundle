@@ -15,8 +15,10 @@
     "MIT"
   ],
   "require": {
-    "php": ">=5.4",
-    "symfony/symfony": ">=2.6"
+    "php": ">=7.0",
+    "symfony/symfony": ">=2.8",
+    "swiftmailer/swiftmailer": "^6.2",
+    "twig/twig": "^2.0"
   },
   "autoload": {
     "psr-0": {
@@ -24,10 +26,6 @@
     }
   },
   "target-dir": "Mrapps/EmailBundle",
-  "repositories": [
-    {
-    }
-  ],
   "extra": {
     "branch-alias": {
       "dev-master": "0.1-dev"
