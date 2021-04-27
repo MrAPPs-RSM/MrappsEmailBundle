@@ -31,7 +31,7 @@ class MrappsEmailExtension extends Extension
         $container->setParameter('mrapps_email.style.text_on_main_color', $config['style']['text_on_main_color']);
 
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
 }

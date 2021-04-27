@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ff1e56697bc32f1353ada36612e1388",
+    "content-hash": "fbc7fae9e202b9a591ecb39e01555e4e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -668,6 +668,66 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
+            "name": "phpstan/phpstan",
+            "version": "0.12.84",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c43f15da8798c8f30a4b099e6a94530a558cfd5",
+                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.12-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan/issues",
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.84"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-04-19T17:10:54+00:00"
+        },
+        {
             "name": "psr/cache",
             "version": "1.0.1",
             "source": {
@@ -903,6 +963,52 @@
                 "psr-3"
             ],
             "time": "2020-03-23T09:12:05+00:00"
+        },
+        {
+            "name": "rector/rector-prefixed",
+            "version": "0.10.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/rector-prefixed.git",
+                "reference": "b52a938d682300a5c27c624d78f6c34d4ccf466d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/rector-prefixed/zipball/b52a938d682300a5c27c624d78f6c34d4ccf466d",
+                "reference": "b52a938d682300a5c27c624d78f6c34d4ccf466d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0",
+                "phpstan/phpstan": "^0.12.83"
+            },
+            "conflict": {
+                "phpstan/phpdoc-parser": "<=0.5.3",
+                "phpstan/phpstan": "<=0.12.82"
+            },
+            "bin": [
+                "bin/rector"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.10-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Prefixed and PHP 7.0 downgraded version of rector/rector",
+            "support": {
+                "source": "https://github.com/rectorphp/rector-prefixed/tree/0.10.11"
+            },
+            "time": "2021-04-24T12:44:58+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2286,8 +2392,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0"
+        "php": ">=7.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

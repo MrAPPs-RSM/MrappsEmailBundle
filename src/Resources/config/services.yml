@@ -2,13 +2,13 @@ services:
     mrapps.email:
         class: Mrapps\EmailBundle\Services\EmailManager
         arguments:
-                - @twig
-                - @swiftmailer.mailer.default
+                - "@twig"
+                - "@swiftmailer.mailer.default"
         calls:
                 - [setParameters, ["@=service('kernel').getContainer().getParameterBag()"]]
 
     mrapps.email.twig.extension:
             class: Mrapps\EmailBundle\Twig\MrappsEmailTwigExtension
-            arguments: [@service_container]
+            arguments: ["@service_container"]
             tags:
                 - { name: twig.extension }

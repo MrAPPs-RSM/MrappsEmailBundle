@@ -2,19 +2,8 @@
 
 namespace Mrapps\EmailBundle\Classes;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
 class Utils
 {
-    /**
-     * @deprecated Use mrapps.email service
-     * @see mrapps.email service
-     */
-    public static function sendEmail(ContainerInterface $container, $subject = "", $from = null, $to = null, $emailParts = null, $logoUrl = null, $companyName = null, $street = null, $otherInfo = null)
-    {
-        return $container->get("mrapps.email")->sendEmail($subject, $from, $to, $emailParts, $logoUrl, $companyName, $street, $otherInfo);
-    }
-
     public static function troncaStringa($stringa = '', $lengthNeeded = 100, $stripTags = true)
     {
 

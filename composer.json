@@ -15,14 +15,15 @@
     "MIT"
   ],
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.3",
     "symfony/symfony": ">=2.8",
     "swiftmailer/swiftmailer": "^6.2",
-    "twig/twig": "^2.0"
+    "twig/twig": "^2.0",
+    "rector/rector-prefixed": "^0.10.11"
   },
   "autoload": {
-    "psr-0": {
-      "Mrapps\\EmailBundle": ""
+    "psr-4": {
+      "Mrapps\\EmailBundle\\": "src/"
     }
   },
   "target-dir": "Mrapps/EmailBundle",
