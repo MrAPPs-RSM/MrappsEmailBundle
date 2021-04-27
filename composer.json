@@ -26,7 +26,6 @@
       "Mrapps\\EmailBundle\\": "src/"
     }
   },
-  "target-dir": "Mrapps/EmailBundle",
   "extra": {
     "branch-alias": {
       "dev-master": "0.1-dev"
